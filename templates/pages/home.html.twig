@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block title %}Agence Immob - Page d'accueil{% endblock %}
+{% block body %}
+    <!-- Page title !-->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Page d'accueil</h1>
+            <p class="lead">Bienvenue, sur notre page d'accueil de L'agence Immob</p>
+        </div>
+    </div>
+    <!-- Liste des biens !-->
+    <div class="container">
+        <h2>Les dernies biens</h2>
+        <div class="row flex">
+            {% for property in properties %}
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="car-title">
+                                <a href="{{ path('property.show', {id: property.id, slug: property.slug}) }}">{{ property.title }}</a>
+                            </h5>
+                            <p class="card-text">{{ property.city }} ({{ property.postalCode }})</p>
+                            <div class="text-primary">{{ property.getFormattedPrice }} $</div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
