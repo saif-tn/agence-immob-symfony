@@ -38,7 +38,6 @@ class PropertyController extends AbstractController
      * @return Response
      */
     public function show(Property $property, string $slug): Response {
-
         //$property = $this->repository->find($id);
         if($property->getSlug() !== $slug) {
             return $this->redirectToRoute('property.show', [
@@ -46,7 +45,7 @@ class PropertyController extends AbstractController
                 'slug'  => $property->getSlug()
             ], 301);
         }
-
+        // show single property page
         return $this->render('property/show.html.twig', [
             'current_menu'  => 'properties',
             'property'      => $property

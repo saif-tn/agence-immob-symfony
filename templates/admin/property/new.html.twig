@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block title %}Agence Immob - Dashboard{% endblock %}
+{% block body %}
+    <!-- Page title !-->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Dashboard - Nouveau bien</h1>
+        </div>
+    </div>
+    <!-- Liste des biens !-->
+    <div class="container mt-4">
+        <h2>Ajouter un bien: </h2>
+        <!-- Formulaire !-->
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="col-md-4">{{ form_row(form.title) }}</div>
+            <div class="col-md-4">{{ form_row(form.surface) }}</div>
+            <div class="col-md-4">{{ form_row(form.price) }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">{{ form_row(form.rooms) }}</div>
+            <div class="col-md-2">{{ form_row(form.bedrooms) }}</div>
+            <div class="col-md-2">{{ form_row(form.heat) }}</div>
+            <div class="col-md-2">{{ form_row(form.floor) }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">{{ form_row(form.address) }}</div>
+            <div class="col-md-2">{{ form_row(form.city) }}</div>
+            <div class="col-md-1">{{ form_row(form.postal_code) }}</div>
+            <div class="col-md-2">{{ form_row(form.sold) }}</div>
+        </div>
+        {{ form_widget(form) }}
+        <button class="btn btn-primary ">Editer</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
